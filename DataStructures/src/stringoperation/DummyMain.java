@@ -19,7 +19,7 @@ public class DummyMain {
 		
 		String input2 = "Tact Coa";
 		//Ex: taco cat,  atco cta
-		boolean output = true; 
+		boolean output = true;
 		System.out.println(isPermutationOfPalindrome(input2.toLowerCase()));
 		
 	
