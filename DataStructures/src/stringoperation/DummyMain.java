@@ -1,93 +1,50 @@
 package stringoperation;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.TextStyle;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Locale;
 import java.util.stream.IntStream;
 
 public class DummyMain {
 	
 	public static void main(String[] args) {
 		
+		findDulpicatesInArray();
+		biggestOfArrayUsingRecursion();
+		recursiveBinarySearch();
+		checkAnagram();
 		
-		//findDulpicatesInArray();
-		//biggestOfArrayUsingRecursion();
-		//recursiveBinarySearch();
-		//checkAnagram();
-		
-//		String input = "qa w u    "; 
-//		String expectedOutput = "qa%20w%20u";
-//		insertCharacters(input.toCharArray(), 6);
+		String input1 = "qa w u    "; 
+		String expectedOutput = "qa%20w%20u";
+		insertCharacters(input1.toCharArray(), 6);
 		
 		
-//		String input = "Tact Coa";
-//		boolean output = true; //Ex: taco cat,  atco cta
-//		System.out.println(isPermutationOfPalindrome(input.toLowerCase()));
+		String input2 = "Tact Coa";
+		boolean output = true; //Ex: taco cat,  atco cta
+		System.out.println(isPermutationOfPalindrome(input2.toLowerCase()));
 		
 	
-//		String str1 = "pale"; String str2 = "ple";  //--> true 
-//		String str3 = "pales"; String str4 = "pale"; // --> true
-//		String str5 = "pale"; String str6 = "bae";  // --> false
-//		String str7 = "pale"; String str8 = "bale";  // --> true
-//		
-//		//insert, delete, replace
-//		System.out.println(isOneEditAway(str1, str2));
-//		System.out.println(isOneEditAway(str3, str4));
-//		System.out.println(isOneEditAway(str5, str6));
-//		System.out.println(isOneEditAway(str7, str8));
+		String str1 = "pale"; String str2 = "ple";  //--> true 
+		String str3 = "pales"; String str4 = "pale"; // --> true
+		String str5 = "pale"; String str6 = "bae";  // --> false
+		String str7 = "pale"; String str8 = "bale";  // --> true
+		
+		//insert, delete, replace
+		System.out.println(isOneEditAway(str1, str2));
+		System.out.println(isOneEditAway(str3, str4));
+		System.out.println(isOneEditAway(str5, str6));
+		System.out.println(isOneEditAway(str7, str8));
 		
 		
-//		String str1 = "aaaabbccccccccaaa";// a4b2c8a3
-//		String str2 = "abca";// a1b1c1a1 --> abca as this is less than former
-//		String str3 = "aaaabbccccccccaaah";// a4b2c8a3h1
-//		System.out.println(commpressedString(str1));
-//		System.out.println(commpressedString(str2));
-//		System.out.println(commpressedString(str3));
+		 str1 = "aaaabbccccccccaaa";// a4b2c8a3
+		 str2 = "abca";// a1b1c1a1 --> abca as this is less than former
+		 str3 = "aaaabbccccccccaaah";// a4b2c8a3h1
+		System.out.println(commpressedString(str1));
+		System.out.println(commpressedString(str2));
+		System.out.println(commpressedString(str3));
 		
 		
-//		String st1 = "waterbottle";
-//		String st2 = "terbottlewa";
-//		System.out.println(isStringRotation(st1, st2));
-		
-		
-		
-//	LocalDateTime now = LocalDateTime.of(2020,10,13,23,59,59);
-//	LocalDateTime tmr = LocalDateTime.of(2020,10,13,00,00,01);
-//	
-//	System.out.println("Now: " + now);
-//	System.out.println("Tmr: " + tmr);
-//	
-//	//System.out.println(now.until(tmr, ChronoUnit.DAYS));
-//	
-//	//System.out.println(ChronoUnit.DAYS.between(tmr, now));
-//	
-//	System.out.print(now.getDayOfMonth() - tmr.getDayOfMonth());
-		
-		
-		ZoneId zoneId = ZoneId.of("America/Los_Angeles");
-		System.out.println("id          = " + zoneId.getId());
-        System.out.println("displayName = " + 
-            zoneId.getDisplayName(TextStyle.SHORT, Locale.US));        
-        
-        DateFormat getTimeZoneLong = new SimpleDateFormat("zzz", Locale.US);
-        String timeZoneLong = getTimeZoneLong.format(Calendar.getInstance().getTime());
-        System.out.println(timeZoneLong);
-        
-        
-      ZonedDateTime zonedDateTime = LocalDateTime.now().atZone(ZoneId.of("UTC")).withZoneSameInstant(ZoneId.of("America/Los_Angeles"));
-      System.out.println(zonedDateTime);
-      
-      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("zzz");
-      String formattedString = zonedDateTime.format(formatter);
-      System.out.println(formattedString);
-      
+		String st1 = "waterbottle";
+		String st2 = "terbottlewa";
+		System.out.println(isStringRotation(st1, st2));
 	
 	}
 
