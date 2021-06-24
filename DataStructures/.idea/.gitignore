@@ -4,3 +4,4 @@
 .idea/xyz.xml
 .idea/pqr.iml
 *.class
+/bin/
