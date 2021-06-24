@@ -3,4 +3,4 @@
 /workspace.xml
 .idea/xyz.xml
 .idea/pqr.iml
-.class
+*.class
