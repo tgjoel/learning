@@ -1,51 +1,103 @@
 package stringoperations;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 
 public class DummyMain {
 	
 	public static void main(String[] args) {
 		
-		findDulpicatesInArray();
-		biggestOfArrayUsingRecursion();
-		recursiveBinarySearch();
-		checkAnagram();
-		
-		String input1 = "qa w u    "; 
-		String expectedOutput = "qa%20w%20u";
-		insertCharacters(input1.toCharArray(), 6);
 		
 		
-		String input2 = "Tact Coa";
-		//Ex: taco cat,  atco cta
-		boolean output = true;
-		System.out.println(isPermutationOfPalindrome(input2.toLowerCase()));
+//		List list = new ArrayList<>();
+//		
+//		list.add(1);
+////		list.add(2);
+////		list.add(3);
+////		list.add(4);
+////		list.add(5);
+////		list.add(6);
+////		list.add(7);
+//		
+//		String lst = list.toString().substring(1,
+//				list.toString().length() - 1);
+//		
+//		System.out.println(lst);
+//		
+//		String[] nameList = null;
+//		Object[] paramList = null;
+//		if(true) {
+//			nameList = new String[]{"companyIds"};
+//			paramList =new Object[] {lst.split(",")};
+//		}
+//		System.out.println(nameList[0]);
+//		System.out.println(paramList[0]);
+//		
+//		
+//		//Arrays.stream(nameList).forEach(System.out::print);
+//		System.out.println();
+//		Arrays.stream(paramList).forEach(System.out::print);
 		
-	
-		String str1 = "pale"; String str2 = "ple";  //--> true 
-		String str3 = "pales"; String str4 = "pale"; // --> true
-		String str5 = "pale"; String str6 = "bae";  // --> false
-		String str7 = "pale"; String str8 = "bale";  // --> true
-		
-		//insert, delete, replace
-		System.out.println(isOneEditAway(str1, str2));
-		System.out.println(isOneEditAway(str3, str4));
-		System.out.println(isOneEditAway(str5, str6));
-		System.out.println(isOneEditAway(str7, str8));
+		List companyIdList = Arrays.asList("1","2", "3", 4, 676L);
 		
 		
-		 str1 = "aaaabbccccccccaaa";// a4b2c8a3
-		 str2 = "abca";// a1b1c1a1 --> abca as this is less than former
-		 str3 = "aaaabbccccccccaaah";// a4b2c8a3h1
-		System.out.println(commpressedString(str1));
-		System.out.println(commpressedString(str2));
-		System.out.println(commpressedString(str3));
+		List<Long> cmpList = new ArrayList<>();
+		for (Object o : companyIdList) {
+			if(o instanceof String) {
+				cmpList.add(Long.valueOf((String) o));
+			} else if(o instanceof Integer) {
+				cmpList.add(Long.valueOf((Integer) o));
+			} else if(o instanceof Long) {
+				cmpList.add((Long) o);
+			}	
+		}
+		
+		cmpList.forEach(System.out::print);
 		
 		
-		String st1 = "waterbottle";
-		String st2 = "terbottlewa";
-		System.out.println(isStringRotation(st1, st2));
+		
+		
+//		findDulpicatesInArray();
+//		biggestOfArrayUsingRecursion();
+//		recursiveBinarySearch();
+//		checkAnagram();
+//		
+//		String input1 = "qa w u    "; 
+//		String expectedOutput = "qa%20w%20u";
+//		insertCharacters(input1.toCharArray(), 6);
+//		
+//		
+//		String input2 = "Tact Coa";
+//		//Ex: taco cat,  atco cta
+//		boolean output = true;
+//		System.out.println(isPermutationOfPalindrome(input2.toLowerCase()));
+//		
+//	
+//		String str1 = "pale"; String str2 = "ple";  //--> true 
+//		String str3 = "pales"; String str4 = "pale"; // --> true
+//		String str5 = "pale"; String str6 = "bae";  // --> false
+//		String str7 = "pale"; String str8 = "bale";  // --> true
+//		
+//		//insert, delete, replace
+//		System.out.println(isOneEditAway(str1, str2));
+//		System.out.println(isOneEditAway(str3, str4));
+//		System.out.println(isOneEditAway(str5, str6));
+//		System.out.println(isOneEditAway(str7, str8));
+//		
+//		
+//		 str1 = "aaaabbccccccccaaa";// a4b2c8a3
+//		 str2 = "abca";// a1b1c1a1 --> abca as this is less than former
+//		 str3 = "aaaabbccccccccaaah";// a4b2c8a3h1
+//		System.out.println(commpressedString(str1));
+//		System.out.println(commpressedString(str2));
+//		System.out.println(commpressedString(str3));
+//		
+//		
+//		String st1 = "waterbottle";
+//		String st2 = "terbottlewa";
+//		System.out.println(isStringRotation(st1, st2));
 	
 	}
 
