@@ -8,5 +8,6 @@ build
 bin
 .DS_Store
 .checkstyle
+.settings
 *.hprof
 
