@@ -2,15 +2,21 @@ package stringoperations;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.IntStream;
 
 public class DummyMain {
-	
+
+
 	public static void main(String[] args) {
-		
-		
-		
+
+//		Languages ap;
+//		for (Languages a: Languages.values()) {
+//			System.out.println(a + " " + a.getCoders() + " coders.");
+//		}
+
+
 //		List list = new ArrayList<>();
 //		
 //		list.add(1);
@@ -34,35 +40,33 @@ public class DummyMain {
 //		}
 //		System.out.println(nameList[0]);
 //		System.out.println(paramList[0]);
-//		
-//		
+//
 //		//Arrays.stream(nameList).forEach(System.out::print);
 //		System.out.println();
 //		Arrays.stream(paramList).forEach(System.out::print);
 		
-		List companyIdList = Arrays.asList("1","2", "3", 4, 676L);
-		
-		
-		List<Long> cmpList = new ArrayList<>();
-		for (Object o : companyIdList) {
-			if(o instanceof String) {
-				cmpList.add(Long.valueOf((String) o));
-			} else if(o instanceof Integer) {
-				cmpList.add(Long.valueOf((Integer) o));
-			} else if(o instanceof Long) {
-				cmpList.add((Long) o);
-			}	
-		}
-		
-		cmpList.forEach(System.out::print);
-		
-		
-		
-		
+//		List companyIdList = Arrays.asList("1","2", "3", 4, 676L);
+//
+//		List<Long> cmpList = new ArrayList<>();
+//		for (Object o : companyIdList) {
+//			if(o instanceof String) {
+//				cmpList.add(Long.valueOf((String) o));
+//			} else if(o instanceof Integer) {
+//				cmpList.add(Long.valueOf((Integer) o));
+//			} else if(o instanceof Long) {
+//				cmpList.add((Long) o);
+//			}
+//		}
+//
+//		cmpList.forEach(System.out::print);
+
 //		findDulpicatesInArray();
 //		biggestOfArrayUsingRecursion();
 //		recursiveBinarySearch();
 //		checkAnagram();
+//		largestOddNumberInTheString();
+//		longestEvenWord();
+		
 //		
 //		String input1 = "qa w u    "; 
 //		String expectedOutput = "qa%20w%20u";
@@ -93,12 +97,65 @@ public class DummyMain {
 //		System.out.println(commpressedString(str1));
 //		System.out.println(commpressedString(str2));
 //		System.out.println(commpressedString(str3));
-//		
-//		
+
 //		String st1 = "waterbottle";
 //		String st2 = "terbottlewa";
 //		System.out.println(isStringRotation(st1, st2));
 	
+	}
+
+	enum Languages {
+		Python(10-10+10*10), Java(9-9+9*9), Angular(12-12+12*12);
+		private int coders;
+		Languages(int p) {
+			this.coders = p;
+		}
+		public int getCoders() {
+			return coders;
+		}
+	}
+
+
+	private static void longestEvenWord() {
+		String s = "this is a simple input for the problem";
+
+		String lword = Arrays.stream(s.split(" "))
+				.filter(w ->  w.length() % 2 ==0)
+				.max(Comparator.comparingInt(String::length)).orElse("");
+		System.out.println("Longest Even word in the string: " + lword);
+
+	}
+
+	private static void sumOfSquaresOfOddNumber() {
+		//Sum of squares of the odd numbers in the list
+		List<Integer> list = Arrays.asList(1,2,3,4,5);
+		Integer sumsgr1 = list.stream().filter(x -> x % 2 != 0).map(x -> x * x).mapToInt(Integer::intValue).sum();
+		System.out.println(sumsgr1);
+		Integer sumsgr2 = list.stream().filter(x->x%2 != 0).map(x -> x * x).reduce(0, Integer::sum);
+		System.out.println(sumsgr2);
+	}
+
+	private static void largestOddNumberInTheString() {
+		// method finds the largest odd number in the string
+		//Ex: 56 -> 5 || 4206 -> none ||  35427 -> 35427
+
+		String s = "354276";
+		//s = "4206";
+		//s = "56";
+		int num = Integer.MIN_VALUE;
+
+		for(int i = s.length()-1;i>=0; i--) {
+			if(Integer.parseInt(String.valueOf(s.charAt(i))) % 2 != 0){
+				num = Integer.parseInt(s.substring(0, i +1)); // second index is exclusive hence +1;
+				break;
+			}
+		}
+		if(Integer.MIN_VALUE == num) {
+			System.out.println("None");
+		} else {
+			System.out.println("Largest odd number: " + num);
+		}
+
 	}
 
 	private static boolean isStringRotation(String st1, String st2) {
@@ -108,12 +165,9 @@ public class DummyMain {
 		if(st1.length()!=st2.length()) {
 			return false;
 		}
-		
 		// st2 should be a substring of st1st1
 		String st = st1 + st1;
-		
 		return st.contains(st2);
-		
 	}
 
 	private static String commpressedString(String str) {
@@ -136,7 +190,6 @@ public class DummyMain {
 		if(str1.length() - str2.length() > 1) {
 			return false;
 		}
-		
 		int arr[] = new int[26];
 		
 		for (int i = 0; i < str1.length(); i++) {
