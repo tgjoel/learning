@@ -29,9 +29,7 @@ public class LeftViewOfBinaryTree {
         System.out.println();
         //using queue
         new LeftView().printLeftViewUsingQueue(root);
-
     }
-
 }
 
 class LeftView {
