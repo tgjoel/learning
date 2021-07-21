@@ -45,7 +45,8 @@ public class InterThreadCommunication {
     public static void main(String[] args) {
 
         InterThreadCommunication itc = new InterThreadCommunication();
-        itc.setN(56);
+        itc.setN(52);
+
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
