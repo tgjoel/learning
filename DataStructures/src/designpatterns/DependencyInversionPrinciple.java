@@ -1,7 +1,5 @@
 package designpatterns;
 
-import org.javatuples.Triplet;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -74,43 +72,43 @@ interface RelationshipBrowser {
     List<Person> findAllChildrenOf(String name);
 }
 
-class Relationships implements RelationshipBrowser {
-    public List<Person> findAllChildrenOf(String name) {
-
-        return relations.stream()
-                .filter(x -> Objects.equals(x.getValue0().name, name)
-                        && x.getValue1() == Relationship.PARENT)
-                .map(Triplet::getValue2)
-                .collect(Collectors.toList());
-    }
-
-    // Triplet class requires javatuples
-    private List<Triplet<Person, Relationship, Person>> relations =
-            new ArrayList<>();
-
-    public List<Triplet<Person, Relationship, Person>> getRelations() {
-        return relations;
-    }
-
-    public void addParentAndChild(Person parent, Person child) {
-        relations.add(new Triplet<>(parent, Relationship.PARENT, child));
-        relations.add(new Triplet<>(child, Relationship.CHILD, parent));
-    }
-}
+//class Relationships implements RelationshipBrowser {
+//    public List<Person> findAllChildrenOf(String name) {
+//
+//        return relations.stream()
+//                .filter(x -> Objects.equals(x.getValue0().name, name)
+//                        && x.getValue1() == Relationship.PARENT)
+//                .map(Triplet::getValue2)
+//                .collect(Collectors.toList());
+//    }
+//
+//    // Triplet class requires javatuples
+//    private List<Triplet<Person, Relationship, Person>> relations =
+//            new ArrayList<>();
+//
+//    public List<Triplet<Person, Relationship, Person>> getRelations() {
+//        return relations;
+//    }
+//
+//    public void addParentAndChild(Person parent, Person child) {
+//        relations.add(new Triplet<>(parent, Relationship.PARENT, child));
+//        relations.add(new Triplet<>(child, Relationship.CHILD, parent));
+//    }
+//}
 
 class Research {
-    public Research(Relationships relationships) {
-        // high-level: find all of john's children
-        List<Triplet<Person, Relationship, Person>> relations = relationships.getRelations();
-        relations.stream()
-                .filter(x -> x.getValue0().name.equals("John")
-                        && x.getValue1() == Relationship.PARENT)
-                .forEach(ch -> System.out.println("John has a child called " + ch.getValue2().name));
-    }
-
-    public Research(RelationshipBrowser browser) {
-        List<Person> children = browser.findAllChildrenOf("John");
-        for (Person child : children)
-            System.out.println("John has a child called " + child.name);
-    }
+//    public Research(Relationships relationships) {
+//        // high-level: find all of john's children
+//        List<Triplet<Person, Relationship, Person>> relations = relationships.getRelations();
+//        relations.stream()
+//                .filter(x -> x.getValue0().name.equals("John")
+//                        && x.getValue1() == Relationship.PARENT)
+//                .forEach(ch -> System.out.println("John has a child called " + ch.getValue2().name));
+//    }
+//
+//    public Research(RelationshipBrowser browser) {
+//        List<Person> children = browser.findAllChildrenOf("John");
+//        for (Person child : children)
+//            System.out.println("John has a child called " + child.name);
+//    }
 }
