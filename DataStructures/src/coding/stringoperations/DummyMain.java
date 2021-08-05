@@ -10,11 +10,8 @@ public class DummyMain {
 
 	public static void main(String[] args) {
 
-		int arr[] = {10, 324, 45, 90, 9808};
 
-
-
-
+//		int arr[] = {10, 324, 45, 90, 9808};
 //		int maximum = maximum(arr);
 //		System.out.println(maximum);
 //		Languages ap;
@@ -72,6 +69,7 @@ public class DummyMain {
 //		checkAnagram();
 //		largestOddNumberInTheString();
 //		longestEvenWord();
+//		compress()
 		
 //		
 //		String input1 = "qa w u    "; 
@@ -377,5 +375,30 @@ public class DummyMain {
 			
 		}
 		
+	}
+
+	private static void compress() {
+		String input = "czzzzaaaa0aaaaaayyyyyllllflllc";
+
+		int count = 1;
+		StringBuilder sb = new StringBuilder();
+		if(input == null){
+			//handle null
+		}
+		for (int i = 0; i < input.length(); i++) {
+
+			if (i == input.length() - 1) {
+				sb.append(input.charAt(i)).append(count);
+				break;
+			}
+			if (input.charAt(i) == input.charAt(i + 1)) {
+				count++;
+			} else {
+				sb.append(input.charAt(i)).append(count);
+				count = 1;
+			}
+
+		}
+		System.out.println(sb);
 	}
 }
