@@ -1,4 +1,4 @@
-package coding.binarytree;
+package coding.array;
 
 public class SquareOfNonDecreasingNumber {
     /*Given an array of integers sorted in non-decreasing order, return the squares of this array,

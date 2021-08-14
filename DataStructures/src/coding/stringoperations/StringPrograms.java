@@ -115,7 +115,7 @@ public class StringPrograms {
 	}
 	private static void  occurences() {
 		String S = "occurrences";
-		int arr[] = new int[26];
+		int[] arr = new int[26];
 
 		for(int i = 0; i< S.length(); i++) {
 			arr[S.charAt(i) - 'a']++;
@@ -132,6 +132,7 @@ public class StringPrograms {
 	private static void camelCase(String s) {
 		System.out.println(s.chars().filter(Character::isUpperCase).count() + 1 );
 	}
+
 
 	private static String superReducedString(String s) {
 		if(s==null) {
@@ -154,9 +155,7 @@ public class StringPrograms {
 
 	}
 
-	private static int maximum(int[] arr) {
-		return Arrays.stream(arr).max().getAsInt();
-	}
+
 
 	enum Languages {
 		Python(10-10+10*10), Java(9-9+9*9), Angular(12-12+12*12);

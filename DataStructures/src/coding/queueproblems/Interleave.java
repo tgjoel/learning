@@ -72,7 +72,6 @@ public class Interleave {
 		while(!s.isEmpty()) {
 			q.add(s.pop());
 			q.add(q.remove());
-			count++;
 		}
 
 	}

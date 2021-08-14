@@ -2,6 +2,7 @@ package learning.java8features;
 
 import learning.java8features.model.Employee;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
@@ -44,6 +45,10 @@ public class Java8Questions {
         method14();
         // Query 15 : Who is the oldest employee in the organization? What is his age and which department he belongs to?
         method15();
+    }
+
+    private static int maximum(int[] arr) {
+        return Arrays.stream(arr).max().getAsInt();
     }
 
     private static void method15() {
