@@ -1,6 +1,9 @@
 package learning.java8features;
 
+import learning.interfacesample.A;
+
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiPredicate;
@@ -20,8 +23,10 @@ public class Java8Features {
         filtered.sort(Integer::compareTo);
         filtered.forEach(x -> System.out.print(" " + x));
 
+
         System.out.println();
         System.out.println("BiPredicate");
+
         //BiPredicate
         BiPredicate<Integer, Integer> p3 = (x, y) -> x > 10 && y < 400;
         filtered = integerList.stream().filter(x -> p3.test(x, x)).collect(Collectors.toList());
@@ -42,10 +47,43 @@ public class Java8Features {
         Map<Integer, Long> integerMap = integerList1.stream().collect(Collectors.groupingBy(x->x, Collectors.counting()));
         //Can use Function.identity() instead of x->x;
         System.out.println(integerMap);
+
+        //comparing based on two condition.
+        List<AClass> aclassList = Arrays.asList(new AClass(1, "ewew"), new AClass(12, "eregfg"),
+                new AClass(454, "QAsgsfdgZ"), new AClass(644, "hgdhghdx"));
+        aclassList.sort(Comparator.comparingInt(AClass::getId).thenComparing(AClass::getName));
+        System.gc();
     }
 }
 
 @FunctionalInterface
 interface CalculateInterface {
     int calculate(int i, int j);
+}
+
+class AClass {
+    Integer id;
+    String name;
+
+
+    public AClass(Integer id, String name) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

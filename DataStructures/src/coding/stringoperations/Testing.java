@@ -1,38 +1,69 @@
 package coding.stringoperations;
 
-import java.util.Scanner;
 
+import java.io.Serializable;
 
 public class Testing {
-
-
     public static void main(String[] args)  {
-        
-    }
-
-
-
-
-    private static void logicCheck() {
-        for (int i =0; i <3 ; i++)
-            for (int j = 1; j < 4; j++)
-                for (int k = 2; k < 5; k++)
-                    if(i==j&& j==k)
-                        System.out.println(i);
-    }
-
-
-    private static void scannerTestPgm() {
-        String in ="10 a 100 . 1000 10000";
-        Scanner scanner = new Scanner(in);
-        int accum = 0;
-        for (int i = 0; i < 5; i++) {
-            accum += scanner.nextInt();
-        }
-        System.out.println(accum);
+//        A a = new A();
+//        System.out.println(">>");
+//        B b = new B();
+//        System.out.println(">>");
+//        A b2 = new B();
+//        System.out.println(">>");
+//        C c = new C();
+//        System.out.println(">>");
+//        B c2 = new C();
     }
 }
 
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+class Parent implements Serializable {
+    String name;
+    //Parent() {  /// >>>>>>>>>>>>>>>>  This is required if the child class is not having the constructor
+    //}
+
+     Parent(String name) {
+        this.name = name;
+    }
+    void method1() {
+        System.out.println("Parent -> method1");
+    }
+    public static void method11() {
+        System.out.println("Parent -> method1");
+    }
+}
+
+class Child extends Parent {
+    Child(String name) {
+        super(name);
+    }
+
+    void method1() {
+        System.out.println("Parent -> method1");
+    }
+}
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ class A {
+    public A() {
+        System.out.println("Hi!");
+    }
+}
+ class B extends A {
+     public B() {
+         System.out.println("Bye!");
+     }
+ }
+
+ class C extends B {
+    public C() {
+        System.out.println("See you!");
+    }
+ }
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 class Base{
 
     public String getX() {

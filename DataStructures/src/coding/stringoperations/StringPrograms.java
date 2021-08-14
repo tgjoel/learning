@@ -1,20 +1,17 @@
 package coding.stringoperations;
 
+import javax.xml.stream.events.Characters;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class DummyMain {
+public class StringPrograms {
 
 
 	public static void main(String[] args) {
 
-		int arr[] = {10, 324, 45, 90, 9808};
-
-
-
-
+//		int arr[] = {10, 324, 45, 90, 9808};
 //		int maximum = maximum(arr);
 //		System.out.println(maximum);
 //		Languages ap;
@@ -72,6 +69,7 @@ public class DummyMain {
 //		checkAnagram();
 //		largestOddNumberInTheString();
 //		longestEvenWord();
+//		compress()
 		
 //		
 //		String input1 = "qa w u    "; 
@@ -107,7 +105,53 @@ public class DummyMain {
 //		String st1 = "waterbottle";
 //		String st2 = "terbottlewa";
 //		System.out.println(isStringRotation(st1, st2));
+
+		//String st11 = "abba";
+		//superReducedString(st11);
+
+		String st12 = "saveChangesInTheEditor";
+		camelCase(st12);
 	
+	}
+	private static void  occurences() {
+		String S = "occurrences";
+		int arr[] = new int[26];
+
+		for(int i = 0; i< S.length(); i++) {
+			arr[S.charAt(i) - 'a']++;
+		}
+		StringBuilder sb = new StringBuilder();
+		for(int i = 0; i < S.length(); i++) {
+			if(!sb.toString().contains(""+S.charAt(i))) {
+				sb.append(S.charAt(i)).append(arr[S.charAt(i) - 'a']);
+			}
+		}
+		System.out.println(sb.toString());
+	}
+
+	private static void camelCase(String s) {
+		System.out.println(s.chars().filter(Character::isUpperCase).count() + 1 );
+	}
+
+	private static String superReducedString(String s) {
+		if(s==null) {
+			//handle null
+			return null;
+		}
+		for(int i = 1; i<s.length();i++) {
+			if(s.charAt(i) == s.charAt(i-1)) {
+				s = s.substring(0, i-1) + s.substring(i+1);
+				i=0;
+			}
+		}
+		if(s.length() == 0) {
+			System.out.println("Empty String");
+			return "Empty String";
+		} else {
+			System.out.println("Super reduced string: " +s);
+			return s;
+		}
+
 	}
 
 	private static int maximum(int[] arr) {
@@ -377,5 +421,30 @@ public class DummyMain {
 			
 		}
 		
+	}
+
+	private static void compress() {
+		String input = "czzzzaaaa0aaaaaayyyyyllllflllc";
+
+		int count = 1;
+		StringBuilder sb = new StringBuilder();
+		if(input == null){
+			//handle null
+		}
+		for (int i = 0; i < input.length(); i++) {
+
+			if (i == input.length() - 1) {
+				sb.append(input.charAt(i)).append(count);
+				break;
+			}
+			if (input.charAt(i) == input.charAt(i + 1)) {
+				count++;
+			} else {
+				sb.append(input.charAt(i)).append(count);
+				count = 1;
+			}
+
+		}
+		System.out.println(sb);
 	}
 }
