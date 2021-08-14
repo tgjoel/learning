@@ -3,7 +3,7 @@ package coding.linkedlistproblems;
 import coding.linkedlistproblems.L02_02.N02_02;
 
 public class Intersection {
-
+// https://www.geeksforgeeks.org/write-a-function-to-get-the-intersection-point-of-two-linked-lists/
 	public static void main(String[] args) {
 		
 		L02_02 l = new L02_02();

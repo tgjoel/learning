@@ -24,8 +24,8 @@ public class ZeckendorfsTheorem {
             int first = 0, second = 1, third = 1;
             while(third <=i) {
                 first = second;
-                second = third;
-                third = first + second; // after the loop third will have the greatest fibnocci number less than or equal to i
+                second = third;// after the loop second will have the greatest fibnocci number less than or equal to i
+                third = first + second;
             }
             // need to use the second as third is updated and its greater than i
             System.out.print(" " + second);
