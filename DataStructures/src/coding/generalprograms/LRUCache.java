@@ -57,7 +57,7 @@ class LRUCacheImp {
 	
 	public void print() {
 		System.out.println("LRU cache: ");
-		q.stream().forEach(lru -> System.out.print(lru + " "));
+		q.forEach(lru -> System.out.print(lru + " "));
 		System.out.println();
 	}
 	

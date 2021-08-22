@@ -48,6 +48,11 @@ public class Java8Features {
         //Can use Function.identity() instead of x->x;
         System.out.println(integerMap);
 
+        integerMap.forEach((k,v) -> {
+            System.out.println("Key:" + k);
+            System.out.println("Value:" + v);
+        });
+
         //comparing based on two condition.
         List<AClass> aclassList = Arrays.asList(new AClass(1, "ewew"), new AClass(12, "eregfg"),
                 new AClass(454, "QAsgsfdgZ"), new AClass(644, "hgdhghdx"));

@@ -31,7 +31,7 @@ public class FlightClass implements Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    protected Object clone() {
         List<String> tmp = new ArrayList<>();
         for (String flight: getDefaultFlightList()) {
             tmp.add(flight);
