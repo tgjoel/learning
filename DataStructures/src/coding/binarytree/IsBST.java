@@ -7,6 +7,7 @@ class N2008_1 {
     int data;
     N2008_1 right;
     N2008_1 left;
+
     N2008_1(int data) {
         this.data = data;
         right = null;
@@ -22,18 +23,12 @@ class BT2008_1 {
     }
 
     private boolean isBst(N2008_1 root, int minValue, int maxValue) {
-        if(root == null) {
+        if (root == null) {
             return true;
         }
-
-        if(root.data <= minValue || root.data > maxValue) {
+        if (root.data <= minValue || root.data > maxValue) {
             return false;
         }
-
         return isBst(root.left, minValue, root.data) && isBst(root.right, root.data, maxValue);
-
-
     }
-
-
 }

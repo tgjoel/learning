@@ -2,6 +2,10 @@
 SELECT MAX (column_name) FROM table_name
 WHERE column_name NOT IN (SELECT Max (column_name) FROM table_name);
 
+-- >> Nth largest value in a column :: Get the top N largest element and sort them in asc and get the first one will be the Nth largest value
+SELECT MAX(COLUMN_NAME) FROM (SELECT MAX(COLUMN_NAME) FROM TABLE NAME ORDER BY COLUMN_NAME DESC LIMIT N)
+ORDER BY COLUMN_NAME ASC LIMIT 1;
+
 -- >> Find Max Salary from each department.
  SELECT DeptID, MAX(Salary) FROM Employee GROUP BY DeptID.
 
@@ -45,3 +49,14 @@ select
 select w.id, wp.age, w.coins_needed, w.power from wands w, wands_property wp where w.code = wp.code and wp.is_evil = 0
 and w.coins_needed in (select min(coins_needed) from wands wan where wan.code = wp.code group by wan.power)
 order by w.power desc, wp.age desc;
+
+----- >>>
+-- Combining two tables having same column and finding the total count of same values
+
+select id, count(*) from
+ (
+  select * from table1
+  union all
+  select * from table2
+ )
+group by id;

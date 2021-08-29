@@ -18,8 +18,8 @@ public class ReverseAlternateKNodes {
 		l1.append(10);
 		l1.print();
 		System.out.println();
-		//l1.reverse(2);
-		l1.reverseIterative(2);
+		l1.reverse(3);
+		//l1.reverseIterative(3); /// mistake is there
 		l1.print();
 
 	}

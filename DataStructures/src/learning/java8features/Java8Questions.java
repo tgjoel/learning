@@ -45,6 +45,20 @@ public class Java8Questions {
         method14();
         // Query 15 : Who is the oldest employee in the organization? What is his age and which department he belongs to?
         method15();
+        //Grouping by multiple properties
+        method16();
+        //grouping by multiple and getting the list
+        method17();
+    }
+
+    private static void method17() {
+        employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+                Collectors.groupingBy(Employee::getGender)));
+    }
+
+    private static void method16() {
+        employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+                Collectors.groupingBy(Employee::getGender, Collectors.counting())));
     }
 
     private static int maximum(int[] arr) {

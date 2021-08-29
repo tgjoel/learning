@@ -1,6 +1,6 @@
 package coding.multithreading;
 
-public class InterThreadCommunication {
+public class PrintOddEven {
     int n;
     int counter = 1;
     char chc = 'A';
@@ -16,7 +16,7 @@ public class InterThreadCommunication {
                 try {
                     wait();
                 } catch (InterruptedException e) {
-                    System.out.println(e);
+                    System.out.println(e.getMessage());
                 }
             }
             //System.out.println(counter);
@@ -32,7 +32,7 @@ public class InterThreadCommunication {
                 try {
                     wait();
                 } catch (InterruptedException e) {
-                    System.out.println(e);
+                    System.out.println(e.getMessage());
                 }
             }
             //System.out.println(counter);
@@ -44,7 +44,7 @@ public class InterThreadCommunication {
 
     public static void main(String[] args) {
 
-        InterThreadCommunication itc = new InterThreadCommunication();
+        PrintOddEven itc = new PrintOddEven();
         itc.setN(52);
 
         Thread t1 = new Thread(new Runnable() {
