@@ -1,4 +1,4 @@
-package coding.multithreading;
+package coding.customImplementation;
 
 import java.util.concurrent.LinkedBlockingQueue;
 

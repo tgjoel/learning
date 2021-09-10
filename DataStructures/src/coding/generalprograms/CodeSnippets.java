@@ -2,6 +2,7 @@ package coding.generalprograms;
 
 import coding.generalprograms.pojo.People;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,8 +14,8 @@ public class CodeSnippets {
     //1 Errors handling in java
     public static void main(String[] args) {
 
-        HashMap map = new HashMap();
-        TreeMap treeMap = new TreeMap();
+        A a = new B();
+        B b = new B();
 
 //        try { test(); }
 //        catch (Exception ex) { System.out.print("exception "); }
@@ -29,11 +30,32 @@ public class CodeSnippets {
 
          //addMethod(10,10);
          //addMethod(10,10);
-        System.out.println(String.class.getClassLoader());
+       // System.out.println(String.class.getClassLoader());
         // prints null as string is in bootstrap class path and bootstrap is not written in java,
         // hence its object cannot be retrived
-        System.out.println(CodeSnippets.class.getClassLoader()); // present in application class loader.
+       // System.out.println(CodeSnippets.class.getClassLoader()); // present in application class loader.
+//       try {
+//           checkException();
+//       } catch (Exception e) {
+//           System.out.println("Mains catch block");
+//       }
+//        System.out.println("Main continues");
     }
+
+    private static void checkException() throws Exception {
+        try {
+            System.out.println("In try block");
+            throw new Exception();
+        } catch (Exception e) {
+            System.out.println("In catch block");
+            //throw new Exception();
+        } finally {
+            System.out.println("In finally block");
+            //throw new Exception();
+        }
+        System.out.println("After catch block");
+    }
+
     static void addMethod(float f, int i) {
         System.out.println(f + " " + i);
     }
@@ -61,13 +83,35 @@ public class CodeSnippets {
 }
 
     class A {
-        public void display() throws IOException{
-            System.out.println();
+        int i;
+//        public A() {
+//            System.out.println("Inside A");
+//        }
+        public A(int i) {
+            System.out.println("Inside Param A");
         }
+//        public void display() throws IOException{
+//            System.out.println();
+//        }
     }
     class B extends A {
-        public void display() { //throws Exception {
-            System.out.println();
+        public B() {
+            super(0); // Either there should be default constructor in the superclass or need to call the super
+            System.out.println("Inside B");
         }
+//        public void display() { //throws Exception {
+//            System.out.println();
+//        }
     }
+
+class A1 {
+    public void display() throws IOException {
+        System.out.println();
+    }
+}
+class B1 extends A1 {
+    public void display() throws FileNotFoundException { //throws Exception {
+        System.out.println();
+    }
+}
 

@@ -1,4 +1,4 @@
-package coding.stackproblems;
+package coding.customImplementation;
 
 public class StackUsingLinkedList {
 

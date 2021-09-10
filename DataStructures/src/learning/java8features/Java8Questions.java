@@ -2,13 +2,9 @@ package learning.java8features;
 
 import learning.java8features.model.Employee;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.DoubleSummaryStatistics;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Java8Questions {
@@ -49,11 +45,19 @@ public class Java8Questions {
         method16();
         //grouping by multiple and getting the list
         method17();
+        //custom comparator
+        method18();
+    }
+
+    private static void method18() {
+        Comparator<Employee> compareByName1 = (ob1,ob2) -> ob1.getName().compareTo(ob2.getName());
+        Comparator<Employee> compareByName2 = Comparator.comparing(Employee::getName);
+        employeeList.sort(compareByName1);
     }
 
     private static void method17() {
-        employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment,
-                Collectors.groupingBy(Employee::getGender)));
+        System.out.println(employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+                Collectors.groupingBy(Employee::getGender))));
     }
 
     private static void method16() {
@@ -103,9 +107,9 @@ public class Java8Questions {
     private static void method8() {
        Predicate<Employee> productDevelopment = (employee) -> employee.getDepartment().equalsIgnoreCase("Product Development");
        Predicate<Employee> genderPredicate = employee -> employee.getGender().equalsIgnoreCase("Male");
-        System.out.println(employeeList.stream()
+        employeeList.stream()
                 .filter(productDevelopment.and(genderPredicate))
-                .min(Comparator.comparingInt(Employee::getAge)));
+                .min(Comparator.comparingInt(Employee::getAge));
     }
 
     private static void method7() {

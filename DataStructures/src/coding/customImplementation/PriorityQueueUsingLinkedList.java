@@ -1,4 +1,4 @@
-package coding.queueproblems;
+package coding.customImplementation;
 
 public class PriorityQueueUsingLinkedList {
 
