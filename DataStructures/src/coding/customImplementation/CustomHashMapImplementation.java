@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CustomMapImplementation {
+public class CustomHashMapImplementation {
     public static void main(String[] args) {
         CustomMapImpl customMap = new CustomMapImpl();
         customMap.put(1,1);
