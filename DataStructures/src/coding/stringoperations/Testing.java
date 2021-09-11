@@ -1,7 +1,11 @@
 package coding.stringoperations;
 
 
+import java.io.FileNotFoundException;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.ToIntBiFunction;
 
 public class Testing {
     public static void main(String[] args)  {
@@ -14,6 +18,10 @@ public class Testing {
 //        C c = new C();
 //        System.out.println(">>");
 //        B c2 = new C();
+
+    }
+    static Integer getAsc(String s) {
+        return s.length();
     }
 }
 
@@ -39,7 +47,7 @@ class Child extends Parent {
         super(name);
     }
 
-    void method1() {
+    void method1()  {
         System.out.println("Parent -> method1");
     }
 }

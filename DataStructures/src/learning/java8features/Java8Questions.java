@@ -2,13 +2,9 @@ package learning.java8features;
 
 import learning.java8features.model.Employee;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.DoubleSummaryStatistics;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Java8Questions {
@@ -45,6 +41,28 @@ public class Java8Questions {
         method14();
         // Query 15 : Who is the oldest employee in the organization? What is his age and which department he belongs to?
         method15();
+        //Grouping by multiple properties
+        method16();
+        //grouping by multiple and getting the list
+        method17();
+        //custom comparator
+        method18();
+    }
+
+    private static void method18() {
+        Comparator<Employee> compareByName1 = (ob1,ob2) -> ob1.getName().compareTo(ob2.getName());
+        Comparator<Employee> compareByName2 = Comparator.comparing(Employee::getName);
+        employeeList.sort(compareByName1);
+    }
+
+    private static void method17() {
+        System.out.println(employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+                Collectors.groupingBy(Employee::getGender))));
+    }
+
+    private static void method16() {
+        employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+                Collectors.groupingBy(Employee::getGender, Collectors.counting())));
     }
 
     private static int maximum(int[] arr) {
@@ -89,9 +107,9 @@ public class Java8Questions {
     private static void method8() {
        Predicate<Employee> productDevelopment = (employee) -> employee.getDepartment().equalsIgnoreCase("Product Development");
        Predicate<Employee> genderPredicate = employee -> employee.getGender().equalsIgnoreCase("Male");
-        System.out.println(employeeList.stream()
+        employeeList.stream()
                 .filter(productDevelopment.and(genderPredicate))
-                .min(Comparator.comparingInt(Employee::getAge)));
+                .min(Comparator.comparingInt(Employee::getAge));
     }
 
     private static void method7() {

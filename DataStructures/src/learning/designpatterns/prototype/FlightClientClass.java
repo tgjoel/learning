@@ -2,7 +2,7 @@ package learning.designpatterns.prototype;
 
 import java.util.List;
 
-public class FlightCientClass {
+public class FlightClientClass {
     public static void main(String[] args) throws CloneNotSupportedException {
         FlightClass flightClass = new FlightClass();
         flightClass.loadDefaultFlightList();

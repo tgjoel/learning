@@ -13,13 +13,11 @@ public class BinaryTreeInsertion {
 		b.insert(3);
 		b.levelOrder();
 	}
-	
 }
 
 class Node2 {
 	int val;
 	Node2 right, left;
-	
 	Node2(int val) {
 		this.val = val;
 		this.right = null;

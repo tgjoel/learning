@@ -19,6 +19,7 @@ public class Java8Features {
         List<Integer> integerList = Arrays.asList(112, 22, 34, 41, 51, 1, 522, 34, 65, 9);
         Predicate<Integer> p1 = x -> x > 10;
         Predicate<Integer> p2 = x -> x < 400;
+        Predicate<AClass> aClassPredicate = x-> x.id > 100;
         List<Integer> filtered = integerList.stream().filter(p1.and(p2)).collect(Collectors.toList());
         filtered.sort(Integer::compareTo);
         filtered.forEach(x -> System.out.print(" " + x));

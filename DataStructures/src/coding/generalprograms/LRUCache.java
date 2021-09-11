@@ -21,14 +21,11 @@ public class LRUCache {
 		lru.refer(2);
 		lru.refer(3);
 		lru.refer(4);
-
 	}
-
 }
 
 
 class LRUCacheImp {
-	
 	Deque<Integer> q;
 	Set<Integer> set; // this is used so O(1) checking if the element is in the cache or not. else we have to do O(n) to search
 	int cacheSize;
@@ -40,7 +37,6 @@ class LRUCacheImp {
 	}
 	
 	public void refer(int page) {
-		
 		if(!set.contains(page)) {	// element not in the cache. checking if the cache size is exceeded. removing the last if exceeded.
 			if(q.size() == cacheSize) {
 				int last = q.removeLast();
@@ -52,7 +48,6 @@ class LRUCacheImp {
 		
 		set.add(page); // adding to the set if not present
 		q.addFirst(page);  // pushing the newly visited to the front of the queue
-		
 	}
 	
 	public void print() {
@@ -60,5 +55,4 @@ class LRUCacheImp {
 		q.forEach(lru -> System.out.print(lru + " "));
 		System.out.println();
 	}
-	
 }
