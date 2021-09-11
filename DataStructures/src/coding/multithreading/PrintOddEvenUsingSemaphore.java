@@ -36,7 +36,7 @@ public class PrintOddEvenUsingSemaphore {
 }
 
 class Odd implements Runnable {
-    PrintOddEvenNumbers printOddEvenNumbers = new PrintOddEvenNumbers();
+    PrintOddEvenNumbers printOddEvenNumbers;
     public Odd(PrintOddEvenNumbers poe) {
         this.printOddEvenNumbers = poe;
     }
