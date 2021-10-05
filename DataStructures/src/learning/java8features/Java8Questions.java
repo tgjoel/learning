@@ -47,6 +47,20 @@ public class Java8Questions {
         method17();
         //custom comparator
         method18();
+        //2nd highest salary
+        method19();
+        //top three salary
+        method20();
+    }
+
+    private static void method20() {
+        employeeList.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).limit(3).forEach(System.out::println);
+    }
+
+    private static void method19() {
+        Optional<Employee> maxSalEmp = employeeList.stream().max(Comparator.comparingDouble(Employee::getSalary));
+        Optional<Employee> secondSal = employeeList.stream().filter(emp ->  emp.getSalary() != maxSalEmp.get().getSalary())
+                .max(Comparator.comparingDouble(Employee::getSalary));
     }
 
     private static void method18() {

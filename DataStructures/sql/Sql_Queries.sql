@@ -60,3 +60,17 @@ select id, count(*) from
   select * from table2
  )
 group by id;
+
+--- find the duplicate records in table for a column
+
+SELECT column_name, COUNT(column_name)
+FROM table1
+GROUP BY column_name
+HAVING COUNT(column_name) > 1
+
+--- find the duplicate records in table for multiple column
+
+select column_name1, column_name2, column_name3, count(*)
+from table1
+group by column_name1, column_name2, column_name3
+having count(*) > 1

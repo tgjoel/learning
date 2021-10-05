@@ -72,7 +72,6 @@ class LinkedList2 {
 	}
 	
 	public void middleOfLinkedList() {
-		
 		if(head == null) {
 			System.out.println("No list");
 			return;

@@ -1,5 +1,6 @@
 package coding.multithreading;
 
+import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
@@ -62,7 +63,6 @@ class Even implements Runnable {
 }
 
 class PrintOddEvenNumbers {
-
     private Semaphore oddSemaphore = new Semaphore(1); // so odd will start first
     private Semaphore evenSemaphore = new Semaphore(0);
 

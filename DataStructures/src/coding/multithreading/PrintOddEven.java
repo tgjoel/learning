@@ -5,6 +5,7 @@ public class PrintOddEven {
     int counter = 1;
     char chc = 'A';
     char chs = 'a';
+    int num = 1;
 
     public void setN(int n) {
         this.n = n;
@@ -36,7 +37,8 @@ public class PrintOddEven {
                 }
             }
             //System.out.println(counter);
-            System.out.print(chs++);
+            //System.out.print(chs++);
+            System.out.print(num++);
             counter++;
             notify();
         }

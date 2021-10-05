@@ -7,7 +7,7 @@ public class StockSpan {
     public static void main(String[] args) {
         int[] input = {100, 80, 60, 70, 60, 75, 85};
         int[] span = calculateSpan(input);
-        Arrays.stream(span).forEach(System.out::print);
+        Arrays.stream(span).forEach(x -> System.out.print(x+ " "));
     }
     private static int[] calculateSpan(int[] input) {
         int[] span = new int[input.length];

@@ -12,6 +12,8 @@ public class StringPrograms {
 
 	public static void main(String[] args) {
 
+		System.out.println(Integer.MIN_VALUE);
+		System.out.println(Integer.MAX_VALUE);
 //		int arr[] = {10, 324, 45, 90, 9808};
 //		int maximum = maximum(arr);
 //		System.out.println(maximum);

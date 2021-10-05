@@ -1,4 +1,4 @@
-package coding.dp;
+package coding.dp_recursions;
 
 public class CoinChange {
     /* How many ways can we make the change, for the given coins and for the amount

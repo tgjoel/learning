@@ -30,7 +30,6 @@ class N2508_1 {
 }
 
 class BT2508_1 {
-    N2508_1 root;
 
     public void findSum(N2508_1 root, int sum) {
         List<Integer> result = new ArrayList<>();
