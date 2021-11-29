@@ -1,7 +1,6 @@
 package coding.array;
 
-import java.util.stream.IntStream;
-
+// >>>>>>>>>>>>         SOLUTION DOES NOT WORK. NEED CHANGES  <<<<<<<<<<<
 public class GameWinner {
     public static int findAdjacentIndexWhichCanBeRemoved(String a, char gameChangerName) {
         char array[] = a.toCharArray();

@@ -55,7 +55,7 @@ class Trie {
             }
             current = node;
         }
-        return  current.endOfWord;
+        return current.endOfWord;
         // checked till the last of the string and if the last node has end of word true then the word is present
     }
 
@@ -66,8 +66,8 @@ class Trie {
     private boolean delete(TrieNode current, String word, int index) {
 
         //if the index is equal to the size of the word then, needs to check if that's the end of word.
-        if(index == word.length()) {
-            if(!current.endOfWord) {
+        if (index == word.length()) {
+            if (!current.endOfWord) {
                 //if its not the end of the word return false.
                 return false;
             }
@@ -80,12 +80,12 @@ class Trie {
         char ch = word.charAt(index);
         TrieNode node = current.children.get(ch);
         // if the node is null then the word is not present in the trie
-        if(node == null) {
+        if (node == null) {
             return false;
         }
         //calling recursively the same whether to delete the node or not
-        boolean shouldDeleteNode = delete(node, word, index +1);
-        if(shouldDeleteNode) { // if its true removing the node from the map
+        boolean shouldDeleteNode = delete(node, word, index + 1);
+        if (shouldDeleteNode) { // if its true removing the node from the map
             current.children.remove(ch);
             //we can remove the current node as well if there is no children present after removing one of the node.
             return current.children.isEmpty();
@@ -113,9 +113,11 @@ class Trie {
         }
         insertRecursive(node, word, index + 1);
     }
+
     public boolean searchRecursive(String word) {
         return searchRecursive(root, word, 0);
     }
+
     private boolean searchRecursive(TrieNode current, String word, int index) {
         if (index == word.length()) {
             //return true of current's endOfWord is true else return false.

@@ -15,7 +15,8 @@ public class FindingPairs {
         int k = 3;
        // getTotalCountOfPair(numList, k);
         //printAllCountPairIfNumbersAreDistinct(numList,k);
-        printAllCountPairIfNumbersAreNotDistinct(numList, k);
+       // printAllCountPairIfNumbersAreNotDistinct(numList, k);
+        printAllCountPairPositions();
     }
 
     private static void printAllCountPairIfNumbersAreNotDistinct(List<Integer> numList, int k) {
@@ -46,6 +47,22 @@ public class FindingPairs {
             set.add(numList.get(i));
         }
 
+    }
+    private static void printAllCountPairPositions() {
+        int[] nums = {3,2,4};
+        int target = 6;
+        Map<Integer, Integer> intMap = new HashMap<>();
+        int[] result = new int[2];
+        for(int i = 0; i<nums.length;i++) {
+            int difference = target - nums[i];
+            if (intMap.containsKey(difference)) {
+                result[1] = i;
+                result[0] = intMap.get(difference);
+                break;
+            }
+            intMap.put(nums[i], i);
+        }
+        Arrays.stream(result).forEach(System.out::print);
     }
 
     private static void getTotalCountOfPair(List<Integer> numList, int k) {
